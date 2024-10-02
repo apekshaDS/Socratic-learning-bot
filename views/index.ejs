@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maieutic</title>
+    <link rel="stylesheet" href="/css/indexStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="chat-container" id="chat-container">
+        <div class="header">
+        </div>
+
+        <div class="conversation-history" id="conversation-history">
+            <ul id="conversation-list">
+                <% conversationHistory.forEach(function(entry) { %>
+                    <li class="message">
+                        <div class="user-message">
+                            <%= entry.prompt %>
+                        </div>
+                        <div class="bot-msg">
+                            <img src="/images/botlogo.png" alt="hekk" class="bot-logo">
+                            <div class="bot-message">
+                                <%= entry.response %>
+                            </div>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+
+        <div id="footer">
+            <div id="prompt-box">
+                <form id="chat-form">
+                    <input type="text" name="prompt" placeholder="Ask something..." required id="prompt">
+                    <button type="submit" id="ask-button"><i class="fa-solid fa-upload"></i></button>
+                </form>
+            </div>
+            <div id="feedback-div">
+                <form action="/feedback" method="POST">
+                    <button type="submit" id="feedback-button">Get Feedback</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const prompt = localStorage.getItem('prompt');
+            if (prompt) {
+                document.getElementById('prompt').value = prompt;
+            }
+        });
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

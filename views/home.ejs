@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maieutic</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://fonts.cdnfonts.com/css/nunito-sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>   
+    <div class="chat-container" id="chat-container">
+        <div class="header">
+            <img src="/images/botlogo.png" alt="hekk" class="bot-logo">
+        </div>
+
+        <div class="main-heading">
+            <h1 id="heading">Welcome &nbsp;to &nbsp; M<i>ai</i>eutic</h1>
+        </div>
+
+        <div class="boxes">
+            <div class="card-container">
+                <a href="#" class="card" id="card1" onclick="setPrompt('Help me understand American football')">
+                    <p>Help me understand American football</p>
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                </a>
+                <a href="#" class="card" id="card2" onclick="setPrompt('Create trivia questions about a specific topic')">
+                    <p>Create trivia questions about a specific topic</p>
+                    <div class="icon"><i class="fas fa-question-circle"></i></div>
+                </a>
+                <a href="#" class="card" id="card3" onclick="setPrompt('Find the best running trails nearby')">
+                    <p>Find the best running trails nearby</p>
+                    <div class="icon"><i class="fas fa-running"></i></div>
+                </a>
+                <a href="#" class="card" id="card4" onclick="setPrompt('Teach me to make homemade ice cream')">
+                    <p>Teach me to make homemade ice cream</p>
+                    <div class="icon"><i class="fas fa-ice-cream"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <a href="/bot" id="prompt-box" onclick="setPrompt('')">
+            <div id="chat-form" action="/bot" method="GET">
+                <button type="submit" id="ask-button">Get Started</button>
+            </div>
+        </a>
+    </div>
+    
+    <script>
+        function setPrompt(promptText) {
+            localStorage.setItem('prompt', promptText);
+        }
+    </script>
+    <script src="/js/home.js"></script>
+</body>
+</html>
