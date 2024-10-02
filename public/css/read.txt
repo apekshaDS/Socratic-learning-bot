@@ -1,0 +1,1 @@
+contains styling of all EJS files
